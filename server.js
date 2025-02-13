@@ -3,6 +3,8 @@ const axios = require("axios");
 const cors = require("cors");
 
 const app = express();
+
+// ✅ Set the PORT (Render assigns a port automatically)
 const PORT = process.env.PORT || 5000;
 
 app.use(cors()); // Allow frontend requests
@@ -22,13 +24,10 @@ app.get("/news", async (req, res) => {
     }
 });
 
-// ✅ Default Route (To Prevent "Cannot GET")
+// ✅ Default Route (Prevents "Cannot GET")
 app.get("/", (req, res) => {
     res.send("Server is running! Use /news to get data.");
 });
 
+// ✅ Start the Server (No Extra `}` Here!)
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
-});
-
-app.listen(PORT, () => console.log(`Server running on port ${PORT} `))
